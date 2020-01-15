@@ -29,11 +29,14 @@ var User  = db.sequelize.define(
             type: Sequelize.STRING
         },
         eid: {
-            type: Sequelize.STRING,
+            type: Sequelize.STRING
             
         },
         role_id: {
             type: Sequelize.INTEGER
+        },
+        idproof:{
+            type: Sequelize.STRING
         }
     },
     { underscored: true },

@@ -19,6 +19,8 @@ export const register = newUser => {
     // newUser.forEach(element => {
     //     console.log(element)
     // });
+
+    console.log('user functions ' + newUser.passport)
     let formData = new FormData();
     formData.append('name',newUser.name);
     formData.append('address', newUser.address);
@@ -26,6 +28,8 @@ export const register = newUser => {
     formData.append('email_id', newUser.email_id);
     formData.append('password', newUser.password);
     formData.append('role_id', newUser.role_id);
+    formData.append('passport',newUser.passport,newUser.passport.name)
+    //console.log(formData.get('passport'))
     return axios    
         .post('users/register',formData,{
             headers:{

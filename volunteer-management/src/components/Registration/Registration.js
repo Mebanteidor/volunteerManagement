@@ -21,11 +21,11 @@ class Registration extends Component{
             password: '',
             role_id: 2,
             disabled: true,
+            passport:'',
             errors: {}
     }
 
     setChange = event =>{
-       // if(event.target.name === 'Volunteer')
         this.setState({
             [event.target.name]:event.target.value
         })
@@ -40,16 +40,10 @@ class Registration extends Component{
             contact: this.state.contact,
             email_id: this.state.email_id,
             password: this.state.password,
-            role_id: this.state.role_id
+            role_id: this.state.role_id,
+            passport: this.state.passport
         }
-        //let stateCopy = { ...this.state };
-        // formData.append('name',stateCopy.name);
-        // formData.append('address', stateCopy.address);
-        // formData.append('contact', stateCopy.contact);
-        // formData.append('email_id', stateCopy.email_id);
-        // formData.append('password', stateCopy.password);
-        // formData.append('role_id', stateCopy.role_id);
-        //console.log(formData.get('name'))
+        
         register(newUser).then(res=>{
             this.props.history.push(`/login`);
         })
@@ -161,6 +155,7 @@ class Registration extends Component{
                             className="form-control-file" 
                             id="passport"
                             name="passport" 
+                            //value={this.state.passport}
                             onChange={this.fileSelectedHandler} />
                     </div>
 {/*
