@@ -1,0 +1,96 @@
+1. USERS:
+create table user_details(
+user_id varchar(20) not null,
+name varchar(100),
+address varchar(50),
+age int(10),
+contact int(100),
+email_id varchar(50),
+password varchar(50),
+event_id varchar(20),
+role_id varchar(20),
+primary key (user_id));
+
+
+2.EVENTS:
+create  table event_details(
+event_id varchar(20) not null,
+date DATE,
+time TIME,
+venue varchar(50),
+user_id varchar(20),
+description varchar(255),
+requirement varchar(200),
+primary key(event_id));
+
+3.ROLE MASTER
+create table role_master(
+role_id varchar(20) not null,
+role_name varchar(20),
+primary key(role_id));
+
+4. VOLUNTEER EVENT MAP DETAILS
+create table veventm_details(
+serial_no varchar(20) not null,
+event_id varchar(20),
+user_id varchar(20),
+rank int(20),
+primary key(serial_no));
+
+5.EVENT FEEDBACK 
+create table eventfeedback(
+feedback_id varchar(20) not null,
+user_id varchar(20),
+event_id varchar(20),
+given_by varchar(20),
+primary key(feedback_id));
+
+6.COMPLAINT DETAILS
+create table complaint_details(
+complaint_id varchar(20) not null,
+user_id varchar(20),
+launched_by varchar(10),
+description varchar(50),
+status varchar(20),
+event_id varchar(20),
+primary key(complaint_id));
+
+
+FOREIGN KEYS:
+
+ALTER TABLE user_details
+ADD FOREIGN KEY (event_id) REFERENCES event_details(event_id);
+
+ALTER TABLE user_details
+ADD FOREIGN KEY (role_id) REFERENCES role_master(role_id);
+
+ALTER TABLE event_details
+ADD FOREIGN KEY (user_id) REFERENCES user_details(user_id);
+
+ALTER TABLE veventm_details
+ADD FOREIGN KEY (user_id) REFERENCES user_details(user_id);
+
+ALTER TABLE veventm_details
+ADD FOREIGN KEY (event_id) REFERENCES event_details(event_id);
+
+ALTER TABLE eventfeedback
+ADD FOREIGN KEY (event_id) REFERENCES event_details(event_id);
+
+ALTER TABLE eventfeedback
+ADD FOREIGN KEY (user_id) REFERENCES user_details(user_id);
+
+ALTER TABLE complaint_details
+ADD FOREIGN KEY (user_id) REFERENCES user_details(user_id);
+
+ALTER TABLE complaint_details
+ADD FOREIGN KEY (event_id) REFERENCES event_details(event_id);
+
+ADDING OF EXTRA COLUMN:
+
+ALTER TABLE event_details
+ADD COLUMN description VARCHAR(255) ,
+ADD COLUMN requirement varchar(200);
+
+
+ insert into events values('E123','2020-01-13',NOW(),'Bangalore','blah blah blah','need specialist');
+insert into events values('E124','2020-01-14',NOW(),'Kolkata','Muah hah hah','need to poop');

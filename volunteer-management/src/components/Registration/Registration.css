@@ -1,0 +1,27 @@
+.Register{
+    margin-top: 100px;
+    width: 50%;
+}
+
+.Form{
+    margin-top:10px;
+    margin-bottom: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 0.5px solid gainsboro;
+    border-radius: 5px;
+    padding: 50px 30px;
+    box-shadow: 7px 6px 11px -8px rgba(0,0,0,0.72)}
+
+.Register p{
+    text-align: center;
+    font-size: 3em;
+    font-weight: 100;
+    margin: 0;
+    color: brown;
+}
+
+.Register a{
+    color: brown;
+}

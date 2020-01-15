@@ -1,0 +1,15 @@
+.Event{
+    margin: 20px;
+}
+
+.Card{
+    height: 100%;
+    margin: 0 20px;
+}
+
+.Card:hover{
+    background-color: rgb(219, 217, 217);
+}
+.Mybutton{
+    margin-top: auto;
+} 
